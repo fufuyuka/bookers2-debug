@@ -21,11 +21,11 @@
         <td>
           <% if book.favorited_by?(current_user) %>
               <%= link_to book_favorites_path(book), method: :delete do %>
-                ♥<%= book.favorites.count %>
+                <i class="fas fa-heart text-danger"></i><%= book.favorites.count %>  <!--文字が赤くならない-->
               <% end %>
             <% else %>
               <%= link_to book_favorites_path(book), method: :post do %>
-                ♡<%= book.favorites.count %>
+                ♡<%= book.favorites.count %> <!--class="fal fa-heart text-primary"-->
               <% end %>
           <% end %>
         </td>
