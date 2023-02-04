@@ -1,5 +1,5 @@
-<h2>Results index</h2>
 <% if @range == "User" && @users.length > 0 %>
+<h2>Users search for "<%= @word %>"</h2>
   <table class="table">
     <thead>
       <tr>
@@ -19,7 +19,8 @@
     </tbody>
   </table>
   <% elsif  @range == "Book" && @books.length > 0 %>
-  <table>
+  <h2>Books search for "<%= @word %>"</h2>
+  <table class="table">
     <thead>
       <tr>
         <th></th>
@@ -39,5 +40,5 @@
     </tbody>
   </table>
   <% else %>
-     <p>一致するものはありませんでした</p>
+     <p class="text-center p-4">一致するものはありませんでした</p>
 <% end %>
