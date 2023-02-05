@@ -6,12 +6,12 @@ class BookCommentsController < ApplicationController
     comment = current_user.book_comments.new(book_comment_params)
     comment.book_id = book.id
     comment.save!
-    redirect_to book_path(book)
+    redirect_to book_path(book) 
   end
   
   def destroy
     BookComment.find(params[:id]).destroy
-     redirect_back(fallback_location: root_path)
+     redirect_back(fallback_location: root_path) #非同期化したらルート不要になる(覚えたら消す)
   end
   
   private
