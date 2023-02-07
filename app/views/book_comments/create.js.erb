@@ -1,0 +1,2 @@
+$("textarea").val(''); <!--フォームを空白にする-->
+$('#comments_index').html("<%= j(render "book_comments/post_comments", book: @comment.book) %>")
