@@ -6,11 +6,13 @@ class BookCommentsController < ApplicationController
     @comment = current_user.book_comments.new(book_comment_params)
     @comment.book_id = @book.id
     @comment.save
+    #renderやredirect_toがないので/create.js.erbを参照してくれる(非同期通信)
   end
   
   def destroy
     @comment = BookComment.find(params[:id])
    @comment.destroy
+   #renderやredirect_toがないので/create.js.erbを参照してくれる(非同期通信)
   end
   
   private
