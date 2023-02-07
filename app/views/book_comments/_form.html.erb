@@ -1,6 +1,6 @@
-<!--非同期未テンプレート-->
+<!--非同期テンプレート-->
 
-<%= form_with model:[book,book_comment], remote: true do |f| %>
+<%= form_with model:[book,book_comment] do |f| %>
   <%= f.text_area :comment, class:"form-control comment" %>
   <%= f.submit "送信" %>
 <% end %>

@@ -32,11 +32,11 @@
         </tr>
       </table>
 <!--コメント一覧-->
-      <div>
-        <%= render "book_comments/index", book: @book %>
+      <div id="comments_area">
+        <%= render "book_comments/comments_list", book: @book %>
       </div>
 <!--コメント投稿フォーム-->
-      <div>
+      <div class="new-comment">
         <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
       </div>
       

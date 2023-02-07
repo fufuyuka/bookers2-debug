@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'comments/comments_list', post: @post, comment: @comment) %>");
+$("textarea").val(''); <!--フォームを空白に-->
