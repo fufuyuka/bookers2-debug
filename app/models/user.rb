@@ -25,6 +25,7 @@ class User < ApplicationRecord
   
   has_many :user_rooms
   has_many :rooms, through: :user_rooms
+  has_many :chats
   
   # フォローしたときの処理
   def follow(user_id)
@@ -38,7 +39,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  #相互フォローの関係
+  #相互フォローの関係？
   def matchers
   followings & followers
   end
