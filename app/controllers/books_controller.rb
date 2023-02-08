@@ -9,8 +9,15 @@ class BooksController < ApplicationController
 
   def index
     @nbook = Book.new
-    @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
-    #@books = Book.all
+    to  = Time.current.at_end_of_day
+    from  = (to - 1.day).at_beginning_of_day
+    @books = Book.includes(:favorited_users).
+      sort {|a,b| 
+        b.favorited_users.includes(:favorites).where(created_at: from...to).size <=> 
+        a.favorited_users.includes(:favorites).where(created_at: from...to).size
+      } #過去1週間のいいね多い順 モデルに定義
+    #@books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size} すべてのいいね多い順
+    #@books = Book.all デフォルトの投稿古い順
   end
 
   def create
