@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    
   validates :name,length:{minimum:2,maximum:20},uniqueness:true
   validates :introduction,length:{maximum:50}
 
@@ -24,6 +23,9 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  has_many :user_rooms
+  has_many :rooms, through: :user_rooms
+  
   # フォローしたときの処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -35,6 +37,10 @@ class User < ApplicationRecord
   # フォローしているか判定
   def following?(user)
     followings.include?(user)
+  end
+  #相互フォローの関係
+  def matchers
+  followings & followers
   end
   
   # 検索方法の分岐
