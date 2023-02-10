@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :user_rooms
   has_many :rooms, through: :user_rooms
   has_many :chats
+  #throughオプションによりuser_rooms(中間テーブル)経由でroomsにアクセスできるようになる
+  #user.roomsでアクセスができる
   
   # フォローしたときの処理
   def follow(user_id)
@@ -38,10 +40,6 @@ class User < ApplicationRecord
   # フォローしているか判定
   def following?(user)
     followings.include?(user)
-  end
-  #相互フォローの関係？
-  def matchers
-  followings & followers
   end
   
   # 検索方法の分岐
