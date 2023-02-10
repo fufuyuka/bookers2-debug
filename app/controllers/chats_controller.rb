@@ -3,7 +3,7 @@ before_action :following_check, only: [:show]
   
   def create
     @chat = current_user.chats.new(chat_params)
-    @chat.save
+    render :validater unless @chat.save
     room = @chat.room
     @chats = room.chats
   end

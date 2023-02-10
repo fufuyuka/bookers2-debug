@@ -6,6 +6,11 @@
   <div class='row' id="chat_index">
     <%= render 'chats/index', chats: @chats %>
   </div>
+  
+  <div id="errors">
+  <%= render "layouts/errors", obj: @chat %>
+</div>
+
 <!--チャット投稿フォーム-->
   <div class='row'>
     <%= render 'chats/form', chat: @chat %>

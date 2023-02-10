@@ -1,1 +1,2 @@
-$('#comments_index').html("<%= j(render "book_comments/post_comments", book: @comment.book) %>");
+$('#book-comments-counter').html("<%= j(render 'book_comments/counter', book: @comment.book) %>")
+$('#comments-index').html("<%= j(render "book_comments/post_comments", book: @comment.book) %>");
