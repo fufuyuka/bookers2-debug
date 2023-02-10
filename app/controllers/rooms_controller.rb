@@ -14,9 +14,10 @@ class RoomsController < ApplicationController
     else
       @room = chat_room.room
       @chats = @room.chats
-      @chat = Chat.new(room_id: @room.id)
     end
+    @chat = Chat.new(room_id: @room.id)
   end
+  
   
   private
     def following_check
