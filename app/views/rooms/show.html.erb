@@ -1,18 +1,18 @@
 <div class='container'>
   <div class='row'>
-    <h2 class='px-3 mx-auto'><%= @user.name %>さんとのチャット</h2>
+    <h2 class="px-3 mx-auto"><%= @user.name %>さんとのチャット</h2>
   </div>
 <!--チャット一覧-->
-  <div class='row' id="chat_index">
+  <div class='row' id="message">
     <%= render 'chats/index', chats: @chats %>
   </div>
   
-  <div id="errors">
+  <div id="errors" >
   <%= render "layouts/errors", obj: @chat %>
 </div>
 
 <!--チャット投稿フォーム-->
-  <div class='row'>
+  <div class='row chat-form'>
     <%= render 'chats/form', chat: @chat %>
   </div>
 </div>
