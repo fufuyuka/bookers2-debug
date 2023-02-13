@@ -24,6 +24,7 @@ class Book < ApplicationRecord
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
   scope :created_two_days_ago, -> { where(created_at: 2.days.ago.all_day) }
   scope :created_three_days_ago, -> { where(created_at: 3.days.ago.all_day) }
+  scope :created_days_ago, -> { where(created_at: ...6.days.ago.all_day) }
   
   # 検索方法の分岐
   def self.looks(search, word)

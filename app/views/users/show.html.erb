@@ -66,7 +66,7 @@
       
 <!--過去一週間分の投稿数-->
       <div class = 'table_width'>
-        <h3>投稿数の前日比・前週比</h3>
+        <h3>7日間分の投稿数</h3>
         <table class="table table-bordered text-center">
           <thead>
             <tr class='text-nowrap'>
@@ -81,15 +81,10 @@
           </thead>
           <tbody>
             <tr>
-              <% books.each do |book| %>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+              <% @days_ago.each do |days_ago| %>
+                <td><%= days_ago.count %></td>
               <% end %>
-                <td></td>
+                <td>><%= @today_book.count %></td>
             </tr>
           </tbody>
         </table>
