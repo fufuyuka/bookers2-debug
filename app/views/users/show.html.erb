@@ -11,7 +11,7 @@
       <%= render 'books/index',books: @books %>
     
 <!--投稿数カウント-->
-      <div class = "table_width">
+      <div class = 'table_width'>
         <h3>投稿数の前日比・前週比</h3>
         <table class="table table-bordered text-center">
           <thead>
@@ -38,7 +38,7 @@
         </table>
       </div>
       
-      <div class = "table_width">
+      <div class = 'table_width'>
        <table class="table table-bordered text-center">
         <thead>
          <tr>
@@ -62,6 +62,37 @@
          </tr>
         </tbody>
        </table>
+      </div>
+      
+<!--過去一週間分の投稿数-->
+      <div class = 'table_width'>
+        <h3>投稿数の前日比・前週比</h3>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr class='text-nowrap'>
+              <th>6日前</th>
+              <th>5日前</th>
+              <th>4日前</th>
+              <th>3日前</th>
+              <th>2日前</th>
+              <th>1日前</th>
+              <th>今日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% books.each do |book| %>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              <% end %>
+                <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     
     </div>
