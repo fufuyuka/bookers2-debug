@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @yesterday_book = @books.created_yesterday
     @this_week_book = @books.created_this_week
     @last_week_book = @books.created_last_week
-    @days_ago = @books.created_days_ago
+    @days_ago = @books.create_week_count
   end
 
   def index

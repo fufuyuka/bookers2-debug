@@ -24,7 +24,11 @@ class Book < ApplicationRecord
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
   scope :created_two_days_ago, -> { where(created_at: 2.days.ago.all_day) }
   scope :created_three_days_ago, -> { where(created_at: 3.days.ago.all_day) }
-  scope :created_days_ago, -> { where(created_at: ...6.days.ago.all_day) }
+  scope :created_days_ago, ->(n) { where(created_at: n.days.ago.all_day) }
+  
+  def self.create_week_count
+    (1..6).map { |n| created_days_ago(n).count }.reverse #nに1~6の範囲を反対(reverse)に取り出す
+  end
   
   # 検索方法の分岐
   def self.looks(search, word)
