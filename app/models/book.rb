@@ -44,4 +44,5 @@ class Book < ApplicationRecord
       @book = Book.all
     end
   end
+  
 end
