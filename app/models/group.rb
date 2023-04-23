@@ -1,10 +1,16 @@
 class Group < ApplicationRecord
-  
-  has_many :gorup_users, dependent: :destroy
-  
-  has_one_attached :group_image
-  
-  validates :name,presence:true,length:{maximum:20}
-  validates :introduction,presence:true,length:{maximum:50}
-  validates :owner_id, presence: true,numericality: :only_integer
+  has_one_attached :image
+  belongs_to :owner, class_name: 'User'
+  has_many :group_users, dependent: :destroy
+
+  validates :name, presence: true
+  validates :introduction, presence: true
+
+  def get_image
+    (image.attached?) ? image : 'no_image.jpg'
+  end
+
+  def is_owned_by?(user)
+    owner.id == user.id
+  end
 end
