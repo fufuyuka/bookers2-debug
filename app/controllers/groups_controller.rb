@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
   def show
     @book = Book.new
     @group = Group.find(params[:id])
+    @group_users = Group.where(group_id: @group.id)
   end
   
   def create
