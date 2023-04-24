@@ -25,7 +25,7 @@
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
             <td>
-              <% @group_users.each do |user| %>
+              <% @group.users.each do |user| %>
                 <%= user.name %><br>
               <% end %>
             </td>
@@ -33,10 +33,10 @@
               <% if @group.is_owned_by?(current_user) %>
                 <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>
               <% elsif @group.joined_by?(current_user) %>
-                <%= link_to 'Leave this group', group_group_user_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
-              <% else %>
+                <%= link_to 'Leave this group', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+            <% else %>
               <%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
-              <% end %>
+            <% end %>
             </td>
           </tr>
         </tbody>

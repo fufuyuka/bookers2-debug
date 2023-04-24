@@ -22,16 +22,12 @@
           <% @groups.each do |group| %>
             <tr>
               <td><%= image_tag group.get_image, size: '50x50' %></td>
-              <td>
-                <%= link_to group_path(group) do %>
-                  <%= group.name %>
-                <% end %>
-              </td>
+              <td><%= link_to group.name, group, class: "group_#{group.id}" %></td>
               <td><%= group.introduction %></td>
               <td><%= group.group_users.count %></td>
               <td>
                 <% if group.is_owned_by?(current_user) %>
-                  <%= link_to 'Edit', edit_group_path(group), class: "btn btn-success" %>
+                  <%= link_to 'Edit', edit_group_path(group), class: "group_#{group.id} btn btn-success" %>
                 <% end %>
               </td>
             </tr>
