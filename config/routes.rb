@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:show]
   resources :chats, only: [:index,:create]
   
+  get "event" => "groups#event"
+   get "event_ditail" => "groups#event_ditail"
   resources :groups, only: [:new,:index,:show,:edit,:create,:destroy,:update] do
     resource :group_users, only: [:create,:destroy]
   end

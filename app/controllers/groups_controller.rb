@@ -24,10 +24,17 @@ class GroupsController < ApplicationController
     else
       render 'new'
     end
-
   end
 
   def edit
+  end
+
+  def event
+    #@event(event_params)
+    redirect_to event_ditail_path
+  end
+  
+  def event_ditail
   end
 
   def update
@@ -49,5 +56,9 @@ class GroupsController < ApplicationController
     unless @group.owner_id == current_user.id
       redirect_to groups_path
     end
+  end
+  
+  def event_params
+    params.require(:event).permit(:title, :content)
   end
 end
