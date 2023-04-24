@@ -29,13 +29,6 @@ class GroupsController < ApplicationController
   def edit
   end
 
-  def event
-    #@event(event_params)
-    redirect_to event_ditail_path
-  end
-  
-  def event_ditail
-  end
 
   def update
     if @group.update(group_params)
